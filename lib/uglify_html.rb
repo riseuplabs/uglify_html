@@ -10,6 +10,11 @@ class UglifyHtml
   def make_ugly
     (@doc/"*").each do |e|
       next if @options[:pass_through].include? e.name
+  
+      if @options[:rename_tag] and @options[:rename_tag].has_key? e.name
+        e.change_tag! @options[:rename_tag][e.name]
+        next
+      end
 
       case e.name
       when 'b', 'strong'    then process_with_style(e, "font-weight",      "bold")
