@@ -40,6 +40,12 @@ class UglifyHtmlTest < Test::Unit::TestCase
       uglify = "<p>some <span style=\"text-decoration:line-through\">deleted</span> text inside a paragraph</p>"
       assert_renders_uglify uglify, html 
     end
+    
+    test "it should convert a <strike> tag" do
+      html = "<p>some <strike>striked</strike> text inside a paragraph</p>"
+      uglify = "<p>some <span style=\"text-decoration:line-through\">striked</span> text inside a paragraph</p>"
+      assert_renders_uglify uglify, html 
+    end
   end
 
   context "convert lists" do

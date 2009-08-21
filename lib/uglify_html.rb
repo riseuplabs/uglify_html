@@ -12,11 +12,11 @@ class UglifyHtml
       next if @options[:pass_through].include? e.name
 
       case e.name
-      when 'b', 'strong' then process_with_style(e, "font-weight",      "bold")
-      when 'i', 'em'     then process_with_style(e, "font-style",       "italic")
-      when 'u', 'ins'    then process_with_style(e, "text-decoration",  "underline")
-      when 'del'         then process_with_style(e, "text-decoration",  "line-through")
-      when 'ul', 'ol'    then process_list(e)
+      when 'b', 'strong'    then process_with_style(e, "font-weight",      "bold")
+      when 'i', 'em'        then process_with_style(e, "font-style",       "italic")
+      when 'u', 'ins'       then process_with_style(e, "text-decoration",  "underline")
+      when 'del', 'strike'  then process_with_style(e, "text-decoration",  "line-through")
+      when 'ul', 'ol'       then process_list(e)
       end 
     end
 
